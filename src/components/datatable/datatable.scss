@@ -14,4 +14,43 @@
             margin-right: 20px;
         }
     }
+
+    .cellWithStatus {
+        padding: 5px;
+        border-radius: 5px;
+
+        &.active {
+            color: green;
+            font-weight: bold;
+        }
+        &.pending {
+            color: orange;
+            font-weight: bold;
+        }
+        &.passive {
+            color: red;
+            font-weight: bold;
+        }
+    }
+
+    .cellAction {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+
+        .viewButton {
+            padding: 2px 5px;
+            border-radius: 5px;
+            color: #9B89B3;
+            cursor: pointer;
+        }
+
+        .deleteButton {
+            padding: 2px 5px;
+            border-radius: 5px;
+            color: crimson;
+            cursor: pointer;
+        }
+    }
 }
