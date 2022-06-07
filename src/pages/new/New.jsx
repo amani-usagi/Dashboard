@@ -24,7 +24,12 @@ export const New = ({ inputs, title }) => {
 								</label>
 								<input type="file" name="" id="file" style={{ display: 'none' }} />
 							</div>
-							
+							{inputs.map((input) => (
+								<div className="formInput" key={input.id}>
+									<label>{input.label}</label>
+									<input type={input.type} placeholder={input.placeholder} />
+								</div>
+							))}
 							<button className='button'>Submit</button>
 						</form>
 					</div>
