@@ -6,10 +6,11 @@ import { New } from "./pages/new/New";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import userInputs from "./formsource";
 import productInputs from "./formsource";
+import './style/dark.scss'
 
 function App() {
 	return (
-		<div className="App">
+		<div className="app dark">
 			<BrowserRouter>
 				<Routes>
 					<Route path="/">

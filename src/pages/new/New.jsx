@@ -2,8 +2,11 @@ import './new.scss';
 import { Sidebar } from '../../components/sidebar/Sidebar';
 import { Navbar } from '../../components/navbar/Navbar';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
+import { useState } from 'react';
 
 export const New = ({ inputs, title }) => {
+
+	const [file, setFile] = useState('');
 	return (
 		<div className='new'>
 			<Sidebar />
@@ -14,7 +17,7 @@ export const New = ({ inputs, title }) => {
 				</div>
 				<div className="bottom">
 					<div className="left">
-						<img src={require('../../assets/images/no-image-500x500.png')} alt="" className='imgItem' />
+						<img src={file ? URL.createObjectURL(file) : require('../../assets/images/no-image-500x500.png')} alt="" className='imgItem' />
 					</div>
 					<div className="right">
 						<form>
@@ -22,7 +25,7 @@ export const New = ({ inputs, title }) => {
 								<label htmlFor='file'>
 									Image: <UploadFileIcon className='icon' />
 								</label>
-								<input type="file" name="" id="file" style={{ display: 'none' }} />
+								<input type="file" name="" id="file" onChange={e=>setFile(e.target.files[0])} style={{ display: 'none' }} />
 							</div>
 							{inputs.map((input) => (
 								<div className="formInput" key={input.id}>
