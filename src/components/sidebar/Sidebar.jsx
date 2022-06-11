@@ -12,12 +12,17 @@ import AnalyticsIcon from '@mui/icons-material/Analytics';
 import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
 import MonitorHeartIcon from '@mui/icons-material/MonitorHeart';
 import { Link } from "react-router-dom";
+import { DarkModeContext } from '../../context/darkModeContext';
+import { useContext } from 'react';
 
 export const Sidebar = () => {
+
+    const { dispatch } = useContext(DarkModeContext)
+
     return (
         <div className='sidebar'>
             <div className="top">
-                <Link to='/' style={{textDecoration:'none'}}>
+                <Link to='/' style={{ textDecoration: 'none' }}>
                     <span className="logo">Admin</span>
                 </Link>
             </div>
@@ -25,18 +30,20 @@ export const Sidebar = () => {
             <div className="center">
                 <ul>
                     <p className="title">MAIN</p>
-                    <li>
-                        <DashboardIcon className='icon' />
-                        <span>Dashboard</span>
-                    </li>
+                    <Link to='/' style={{ textDecoration: 'none' }}>
+                        <li>
+                            <DashboardIcon className='icon' />
+                            <span>Dashboard</span>
+                        </li>
+                    </Link>
                     <p className="title">LISTS</p>
-                    <Link to='/users' style={{textDecoration:'none'}}>
+                    <Link to='/users' style={{ textDecoration: 'none' }}>
                         <li>
                             <PersonIcon className="icon" />
                             <span>Users</span>
                         </li>
                     </Link>
-                    <Link to='/product' style={{textDecoration:'none'}}>
+                    <Link to='/product' style={{ textDecoration: 'none' }}>
                         <li>
                             <InventoryIcon className="icon" />
                             <span>Product</span>
@@ -87,8 +94,8 @@ export const Sidebar = () => {
                 </ul>
             </div>
             <div className="bottom">
-                <div className="colorOption"></div>
-                <div className="colorOption"></div>
+                <div className="colorOption" onClick={() => dispatch({ type: 'LIGHT' })}></div>
+                <div className="colorOption" onClick={() => dispatch({ type: 'DARK' })}></div>
             </div>
         </div>
     )

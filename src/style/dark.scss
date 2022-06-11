@@ -10,7 +10,7 @@
         background-color: #111;
 
         .tableCell {
-            color: rgba(228, 225, 225, 0.219);
+            color: rgba(238, 238, 238, 0.219);
         }
     }
 
@@ -48,5 +48,21 @@
                 }
             }
         }
+    }
+
+    .datatable {
+        .dataGrid {
+            color: #999;
+            border: none;
+
+            .viewButton, .deleteButton {
+                color: #999;
+                border: none;
+            }
+        }
+    }
+
+    input {
+        background-color: transparent;
     }
 }
